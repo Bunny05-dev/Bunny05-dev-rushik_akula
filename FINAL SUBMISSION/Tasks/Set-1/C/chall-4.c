@@ -1,44 +1,23 @@
 #include <stdio.h>
-
-
-int findNthNumber(int x, int y, int n) {
-    if (n % 3 == 0)
-        return x;
-    else if (n % 3 == 1)
-        return y;
-    else
-        return x ^ y;
-}
-
-
 int main() {
-    int t, x, y, n;
-
-
-    printf("Enter number of test cases: ");
+    int t, x, y, n, result;
+    printf("");
     scanf("%d", &t);
-
-
-    for (int i = 0; i < t; i++) {
-        printf("Enter the values for x, y, and n:\n");
-
-
-        printf("x: ");
-        scanf("%d", &x);
-
-
-        printf("y: ");
-        scanf("%d", &y);
-
-
-        printf("n: ");
+    while (t > 0) {
+        printf("");
+        scanf("%d %d", &x, &y);
+        printf("");
         scanf("%d", &n);
-
-
-        int result = findNthNumber(x, y, n % 3);
-        printf("The %dth number in the sequence is: %d\n", n, result);
+        if (n % 3 == 0) {
+            result = x;
+        } else if (n % 3 == 1) {
+            result = y;
+        } else {
+            result = x ^ y;
+        }
+        printf("The %d-th number: %d\n", n, result);
+        
+        t--;
     }
-
-
     return 0;
 }
