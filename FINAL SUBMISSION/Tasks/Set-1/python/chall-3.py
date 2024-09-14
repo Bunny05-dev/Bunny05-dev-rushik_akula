@@ -9,22 +9,18 @@ def find_farthest_distance(t, test_cases):
         
         for tree in trees:
             if tree == 0:
-                # If we are outside the forest or in a block of 0's, we can see further.
                 current_distance += 1
             else:
-                # We've hit a tree, check the current distance.
                 max_distance = max(max_distance, current_distance)
                 current_distance = 0
-                outside_forest = False  # Now we are inside the forest.
+                outside_forest = False  
         
-        # After the loop, check one last time (in case the forest ends with 0's).
         max_distance = max(max_distance, current_distance)
         
         results.append(max_distance)
     
     return results
 
-# Taking user input
 t = int(input("Enter number of test cases: "))
 test_cases = []
 
@@ -33,7 +29,6 @@ for _ in range(t):
     trees = list(map(int, input(f"Enter {n} trees (space-separated 0s and 1s): ").split()))
     test_cases.append((n, trees))
 
-# Output the results for each test case
 results = find_farthest_distance(t, test_cases)
 for i, res in enumerate(results):
     print(f"Farthest distance in test case {i + 1}: {res}")
